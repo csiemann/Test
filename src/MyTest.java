@@ -15,7 +15,7 @@ public class MyTest {
             try{
                 for(int i=0; i<5; i++){
                     countMe("t1");
-                    Utils.pause(50);
+                    Utils.pause(25);
                 }
             } catch (Exception e){}
  
