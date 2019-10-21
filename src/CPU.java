@@ -3,16 +3,9 @@
 
 import java.io.File;
 import java.lang.management.ManagementFactory;
-// import java.lang.management.OperatingSystemMXBean;
-import java.lang.reflect.Method;
-import java.lang.reflect.Modifier;
-import java.lang.management.RuntimeMXBean;
-import java.io.*;
-import java.net.*;
-import java.util.*;
-import java.io.LineNumberReader;
-import com.sun.management.OperatingSystemMXBean;
 import java.util.Random;
+
+import com.sun.management.OperatingSystemMXBean;
 
 public class CPU {
 
@@ -21,7 +14,6 @@ public class CPU {
 	
 	public static void printUsage(Runtime runtime) {
 		long total, free, used;
-		int mb = 1024 * 1024;
 
 		total = runtime.totalMemory();
 		free = runtime.freeMemory();
@@ -74,8 +66,6 @@ public class CPU {
 		
 		
 		/* DISC SPACE DETAILS */
-		int system = getSystem();
-
 		System.out.println(getDiskSpace());
 		Runtime runtime;
 		byte[] bytes;
@@ -181,22 +171,5 @@ public class CPU {
 		builder.append("total free physical memory : " + physicalfreeMemorySize / mb + "MB");
 		
 		return builder.toString();
-	}
-
-	private static int getSystem() {
-		String os = System.getProperty("os.name");
-		boolean windows = os.contains("Windows");
-		boolean mac = os.contains("Mac");
-		boolean linux = os.contains("Linux");
-		if (windows) 
-			return 1;
-		else if (mac) 
-			return 2;
-		else if (linux) 
-			return 3;
-		else if (!os.isEmpty()) 
-			return 0;
-		else
-			return -1;
 	}
 }
